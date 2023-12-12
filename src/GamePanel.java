@@ -10,7 +10,7 @@ import javax.sound.sampled.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
-    static final int GAME_WIDTH = 1000;
+    static final int GAME_WIDTH = 1400;
     static final int GAME_HEIGHT = (int) (GAME_WIDTH * (0.5555));
     static final Dimension SCREEN_SIZE = new Dimension(GAME_WIDTH, GAME_HEIGHT);
     static final int BALL_DIAMETER = 20;
@@ -43,7 +43,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void newBall() {
         random = new Random();
-        ball = new Ball((GAME_WIDTH / 2) - (BALL_DIAMETER / 2), random.nextInt(GAME_HEIGHT - BALL_DIAMETER), BALL_DIAMETER, BALL_DIAMETER);
+        ball = new Ball((GAME_WIDTH / 2) - (BALL_DIAMETER / 2), (GAME_HEIGHT/2), BALL_DIAMETER, BALL_DIAMETER);
     }
 
     public void newPaddles() {

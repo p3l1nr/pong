@@ -12,7 +12,7 @@ public class Ball extends Rectangle {
     private Random random;
     public int xVelocity;
     public int yVelocity;
-    private int initialSpeed = 2;
+    private int initialSpeed = 10;
 
     public Ball(int x, int y, int width, int height) {
         super(x, y, width+100, height+100);

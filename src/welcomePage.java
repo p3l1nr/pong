@@ -2,6 +2,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -41,15 +43,29 @@ public class welcomePage extends JFrame {
                 }
             }
         } );
+        //press ENTER and the game start
+        panel.addKeyListener( new KeyAdapter( ) {
+            public void keyPressed( KeyEvent e ) {
+                if ( e.getKeyCode( ) == KeyEvent.VK_ENTER ) {
+                    try {
+                        new GameFrame();
+                    } catch (UnsupportedAudioFileException | LineUnavailableException | IOException ex) {
+                        throw new RuntimeException( ex );
+                    }
+                }
+            }
+
+        } );
+        b.addActionListener( new ActionListener( ) {
+            public void actionPerformed( ActionEvent e ) {
+                dispose( ); // close the current window
+            }
+        } );
 
         b.addActionListener( e -> {
             try {
                 new GameFrame( );
-            } catch (UnsupportedAudioFileException ex) {
-                throw new RuntimeException( ex );
-            } catch (LineUnavailableException ex) {
-                throw new RuntimeException( ex );
-            } catch (IOException ex) {
+            } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
                 throw new RuntimeException( ex );
             }
         } );
