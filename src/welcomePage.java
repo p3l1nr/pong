@@ -49,6 +49,7 @@ public class welcomePage extends JFrame {
                 if ( e.getKeyCode( ) == KeyEvent.VK_ENTER ) {
                     try {
                         new GameFrame();
+                        dispose();
                     } catch (UnsupportedAudioFileException | LineUnavailableException | IOException ex) {
                         throw new RuntimeException( ex );
                     }
